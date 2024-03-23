@@ -3,18 +3,12 @@
 #include<string.h>
 #include<locale.h>
 void ticTacToeLoop(char ticTacToe[3][3]);
-
 void ticTacToePrint(char ticTacToe[3][3]);
-
 int ticTacToeCheckWins(char ticTacToe[3][3], char winner);
-
-void ticTacToeUpdate(int *plays);
-
-int ticTacToeSwitchCase();
 
 int main(){
 	setlocale(LC_ALL,"portuguese");
-	int plays, lineChoose, xOption, winnerX=0, winner0=0;
+	int lineChoose, xOption, winnerX=0, winner0=0, plays;
     char ticTacToe[3][3];
     char continue_='s', winner;
     
@@ -25,13 +19,11 @@ int main(){
 			xOption=1;
 			plays=0;
 			while(winner=='n'){
-				
 				system("cls");
 				ticTacToePrint(ticTacToe);
 				printf("\n\nDigite qual lugar vai jogar: ");
     			scanf("%d", &lineChoose);	
 				fflush(stdin);
-				
     			switch(lineChoose){
 	    			case 1:
 	    				if(ticTacToe[0][0]=='1' && ticTacToe[0][0]!='\n'){
@@ -215,8 +207,6 @@ int main(){
 	    						break;
 	    				}						    					
 				}
-				
-				
 				winner=ticTacToeCheckWins(ticTacToe, winner);
 				
 				if(plays==9 && winner=='n') break;
@@ -294,6 +284,4 @@ int ticTacToeCheckWins(char ticTacToe[3][3], char winner){
 				
 	return winner;
 }
-void ticTacToeUpdate(int *pointer){
-	*pointer=+1;
-}
+
